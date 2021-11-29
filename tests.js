@@ -101,20 +101,20 @@
 // console.log(3 == "3")
 
 
-router.get("/" , (req,res)=>{
-    res.send("Kenny Nguyen - Full Stack Developer")
-})
+// router.get("/" , (req,res)=>{
+//     res.send("Kenny Nguyen - Full Stack Developer")
+// })
 
-router.get("/skills", (req,res)=>{
-    // array of skills
-    const skillList = [
-        {frontEnd: ["HTML", "CSS", "JavaScript", "Liquid",]},
-        {backEnd: ["Express", "Liquid", "MongoDB", "REST", "Node.js"]},
-        {frameworksLibraries: ["React"]}
-      ];
-    Skills.create(skillList)
-        .then((data)=>{res.json({data})})
-    })
+// router.get("/skills", (req,res)=>{
+//     // array of skills
+//     const skillList = [
+//         {frontEnd: ["HTML", "CSS", "JavaScript", "Liquid"]},
+//         {backEnd: ["Express", "Liquid", "MongoDB", "REST", "Node.js", "Python"]},
+//         {frameworksLibraries: ["React"]}
+//       ];
+//     Skills.create(skillList)
+//         .then((data)=>{res.json({data})})
+//     })
 
 /////////////////////////////////////////////////////////////////
 // Edabit Stuff
@@ -378,3 +378,24 @@ router.get("/skills", (req,res)=>{
 //     }
 // }
 // isPalindrome(121)
+
+/////////////////////////////////////////////////////
+// Leetcode
+/////////////////////////////////////////////////////
+
+// Add two numbers in an array that equal a target
+const twoSum = (nums, target) =>{
+    for (i=0; i<nums.length; i++){
+        for(j=i+1; j<nums.length; j++){
+            if (nums[j] == target - nums[i]) {
+                return [j, i].sort()
+            }
+        }
+    }
+}
+
+console.log(twoSum([-3,4,3,90], 0))
+
+// else if (nums[nums.length-1] + nums[0] === target) {
+//     return [0, nums.length-1]
+// }
