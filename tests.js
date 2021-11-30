@@ -384,18 +384,62 @@
 /////////////////////////////////////////////////////
 
 // Add two numbers in an array that equal a target
-const twoSum = (nums, target) =>{
-    for (i=0; i<nums.length; i++){
-        for(j=i+1; j<nums.length; j++){
-            if (nums[j] == target - nums[i]) {
-                return [j, i].sort()
-            }
+// const twoSum = (nums, target) =>{
+//     for (i=0; i<nums.length; i++){
+//         for(j=i+1; j<nums.length; j++){
+//             if (nums[j] == target - nums[i]) {
+//                 return [j, i].sort()
+//             }
+//         }
+//     }
+// }
+
+// console.log(twoSum([-3,4,3,90], 0))
+
+
+// Take a Ten Minute Walk
+const isValidWalk = (walk) =>{
+    arr=[]
+    for (steps of walk){
+    arr.push(steps)
+    }
+    let sum1 = 0
+    let sum2 = 0
+    for (direction of arr){
+        if (direction == "n"){
+            sum1 +=1
         }
+        if (direction == "s"){
+            sum2+=1
+        }
+
+        if (direction == "e"){
+            sum1+=1
+        }
+        if (direction == "w"){
+            sum2+=1
+        }
+    }
+    if(arr[0]=="n" && arr[arr.length-1] == "w" || arr[0]=="n" && arr[arr.length-1] == "e" || arr[0]=="n" && arr[arr.length-1] == "n"){
+        return false
+    }
+    
+    if(arr[0]=="s" && arr[arr.length-1] == "w" || arr[0]=="s" && arr[arr.length-1] == "e" || arr[0]=="s" && arr[arr.length-1] == "s"){
+        return false
+    }
+
+    if(arr[0]=="w" && arr[arr.length-1] == "n" || arr[0]=="w" && arr[arr.length-1] == "w" || arr[0]=="w" && arr[arr.length-1] == "s"){
+        return false
+    }
+
+    if(arr[0]=="e" && arr[arr.length-1] == "n" || arr[0]=="e" && arr[arr.length-1] == "s" || arr[0]=="e" && arr[arr.length-1] == "e"){
+        return false
+    }
+    else if (sum1 == sum2 && arr.length == 10){
+        return true
+    } else {
+        return false
     }
 }
 
-console.log(twoSum([-3,4,3,90], 0))
-
-// else if (nums[nums.length-1] + nums[0] === target) {
-//     return [0, nums.length-1]
-// }
+console.log(isValidWalk(['w','e','w','e','w','e','w','e','w','e','w','e']))
