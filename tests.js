@@ -398,48 +398,89 @@
 
 
 // Take a Ten Minute Walk
-const isValidWalk = (walk) =>{
-    arr=[]
-    for (steps of walk){
-    arr.push(steps)
-    }
-    let sum1 = 0
-    let sum2 = 0
-    for (direction of arr){
-        if (direction == "n"){
-            sum1 +=1
-        }
-        if (direction == "s"){
-            sum2+=1
-        }
+// const isValidWalk = (walk) =>{
+//     arr=[]
+//     for (steps of walk){
+//     arr.push(steps)
+//     }
+//     let sum1 = 0
+//     let sum2 = 0
+//     for (direction of arr){
+//         if (direction == "n"){
+//             sum1 +=1
+//         }
+//         if (direction == "s"){
+//             sum2+=1
+//         }
 
-        if (direction == "e"){
-            sum1+=1
-        }
-        if (direction == "w"){
-            sum2+=1
-        }
-    }
-    if(arr[0]=="n" && arr[arr.length-1] == "w" || arr[0]=="n" && arr[arr.length-1] == "e" || arr[0]=="n" && arr[arr.length-1] == "n"){
-        return false
-    }
+//         if (direction == "e"){
+//             sum1+=1
+//         }
+//         if (direction == "w"){
+//             sum2+=1
+//         }
+//     }
+//     if(arr[0]=="n" && arr[arr.length-1] == "w" || arr[0]=="n" && arr[arr.length-1] == "e" || arr[0]=="n" && arr[arr.length-1] == "n"){
+//         return false
+//     }
     
-    if(arr[0]=="s" && arr[arr.length-1] == "w" || arr[0]=="s" && arr[arr.length-1] == "e" || arr[0]=="s" && arr[arr.length-1] == "s"){
-        return false
-    }
+//     if(arr[0]=="s" && arr[arr.length-1] == "w" || arr[0]=="s" && arr[arr.length-1] == "e" || arr[0]=="s" && arr[arr.length-1] == "s"){
+//         return false
+//     }
 
-    if(arr[0]=="w" && arr[arr.length-1] == "n" || arr[0]=="w" && arr[arr.length-1] == "w" || arr[0]=="w" && arr[arr.length-1] == "s"){
-        return false
-    }
+//     if(arr[0]=="w" && arr[arr.length-1] == "n" || arr[0]=="w" && arr[arr.length-1] == "w" || arr[0]=="w" && arr[arr.length-1] == "s"){
+//         return false
+//     }
 
-    if(arr[0]=="e" && arr[arr.length-1] == "n" || arr[0]=="e" && arr[arr.length-1] == "s" || arr[0]=="e" && arr[arr.length-1] == "e"){
-        return false
-    }
-    else if (sum1 == sum2 && arr.length == 10){
-        return true
-    } else {
-        return false
-    }
-}
+//     if(arr[0]=="e" && arr[arr.length-1] == "n" || arr[0]=="e" && arr[arr.length-1] == "s" || arr[0]=="e" && arr[arr.length-1] == "e"){
+//         return false
+//     }
+//     else if (sum1 == sum2 && arr.length == 10){
+//         return true
+//     } else {
+//         return false
+//     }
+// }
 
-console.log(isValidWalk(['w','e','w','e','w','e','w','e','w','e','w','e']))
+// console.log(isValidWalk(['w','e','w','e','w','e','w','e','w','e','w','e']))
+
+//////////////////////////////////////////
+// Roman to Integer 
+//////////////////////////////////////////
+// let I = 1;
+// let V = 5;
+// let X = 10;
+// let L = 50;
+// let C = 100; 
+// let D = 500;
+// let M = 1000;
+
+// const numbers = {I: 1, V:5, X:10, L:50, C:100, D:500, M:1000}
+
+// const romanToInt = (s) =>{
+//     let num = s.split("")
+//     let small = []
+//     let thing = []
+//     let sum = 0
+
+//     for (i=0; i<num.length; i++){
+//         small.push(num[i])
+//         for (j=0; j<small.length; j++){
+//             if (numbers[small[j]] < numbers[small[j+1]]) {
+//                 thing.push(numbers[small[j+1]] - numbers[small[j]])
+//                 small.splice(j,1)
+//                 small.splice(j, 1)
+//             } 
+//         }
+//     }
+//     for (k=0;k<small.length;k++){
+//         thing.push(numbers[small[k]])
+//     }
+//     for (l=0;l<thing.length;l++){
+//         sum += thing[l]
+//     }
+//     return sum
+// }
+// romanToInt("MCMXCIV")
+
+
