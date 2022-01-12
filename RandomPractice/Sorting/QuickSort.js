@@ -4,9 +4,7 @@ function quickSort(arr){
     const pivot = arr[arr.length-1]
     const right = []
     let start = 0
-
-    console.log("START")
-
+    
     // once the arrays length is shortened to 2, the "quickSort(array)" in the return becomes the values of that sorted array
     // this is how we get returned the whole array after each is being sorted below
     if (arr.length < 2) {
