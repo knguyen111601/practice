@@ -41,3 +41,15 @@ const Odd_or_Even = (n) => {
 
 
 Odd_or_Even(6)
+
+
+// Python Solution
+// def oddOrEven(n):
+//     if (n%2):
+//         print("Either")
+//     elif (n/2 % 2):
+//         print("Odd")
+//     else:
+//         print("Even")
+
+// oddOrEven(6)
