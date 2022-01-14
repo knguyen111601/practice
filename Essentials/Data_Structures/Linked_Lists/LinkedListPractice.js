@@ -1,48 +1,27 @@
-// this keyword practice
-// const Node = (element) => {
-//     this.element = element
-//     this.next = "next thing"
-//     console.log(this)
-// }
-// Node("Whatever")
-// The above returns: {element: "Whatever", next: "next thing"}
+const Node = require("../Node/Node")
 
-
-const LinkedList = () => {
-    let length = 0
-    let head = null
-
-    let Node = (element) =>{
-        this.element = element
-        this.next = null
+class LLNode extends Node {
+    #previous = null
+    #next = null
+    constructor(previous, data){
+        super(data)
+        this.#previous = previous
     }
 
-    this.size = () => {
-        return length
+    setNext(next) {
+        this.#next = next
     }
 
-    this.head = () => {
-        return head
+    getNext() {
+        return this.#next
     }
 
-    this.add = (element) => {
-        let node = new Node(element)
-        if (head === null) {
-            head = node
-        } else {
-            let currentNode = head
 
-            while (currentNode.next) {
-                currentNode = currentNode.next
-            }
-
-            currentNode.next = node
-        }
-
-        length++
+    getPrevious() {
+        return this.#previous
     }
-
 }
 
+class LinkedList {
 
-
+}
