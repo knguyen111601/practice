@@ -5,12 +5,13 @@ const Node = require("../Node/Node")
 class Queue {
     #data = []
 
-    push(newNode) {
-        this.#data.push(new Node(newNode))
-    }
+   queue(data) {
+       this.#data.push(new Node(data))
+   }
 
-    shift() {
-        return this.#data.shift()
-    }
+   dequeue() {
+       return this.#data.shift().getData()
+   }
 }
 
+module.exports = Queue
