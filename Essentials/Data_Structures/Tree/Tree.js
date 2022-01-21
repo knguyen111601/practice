@@ -80,5 +80,18 @@ class BST {
     }
 
     // isPresent
-
+    isPresent(data) {
+        let current = this.root;
+        while (current) { // while current is true
+            if (current === data) { // if they match return true
+                return true;
+            }
+            if (data < current.data) { // traverse left if data is less than current
+                current = current.left
+            } else {
+                current = current.right // traverse right if data is greater than current
+            }
+        }
+        return false; // return false after loop is run and current becomes null
+    }
 }
