@@ -82,7 +82,7 @@ class BST {
     // isPresent
     isPresent(data) {
         let current = this.root;
-        while (current) { // while current is true
+        while (current) { // while current is true or is not null 
             if (current === data) { // if they match return true
                 return true;
             }
@@ -94,4 +94,42 @@ class BST {
         }
         return false; // return false after loop is run and current becomes null
     }
+
+    remove(data) {
+        const removeNode = function(node, data) {
+          if (node == null) { // see if tree is empty 
+            return null;
+          }
+          if (data == node.data) { // if the data matches, 
+            // node has no children 
+            if (node.left == null && node.right == null) {
+              return null; // setting that node that had that data to null
+            }
+            // node has no left child 
+            if (node.left == null) {
+              return node.right; // replace the parent node with its right node (deleting the parent)
+            }
+            // node has no right child 
+            if (node.right == null) {
+              return node.left; // replace the parent node with its left node (deleting the parent)
+            }
+            // node has two children 
+            // if it has two children you want to set the deleted node to the left most node 
+            var tempNode = node.right; // start by setting a temp node to the right node of the target
+            while (tempNode.left !== null) { // then traverse left as far as you can
+              tempNode = tempNode.left; // set the temp node to that left most node
+            }
+            node.data = tempNode.data; // set the data of the node to the temp node's data
+            node.right = removeNode(node.right, tempNode.data); // call remove node function again and create the right of new node
+            return node;
+          } else if (data < node.data) { // go left of the tree 
+            node.left = removeNode(node.left, data); 
+            return node;
+          } else { // data is greater than node.data
+            node.right = removeNode(node.right, data);
+            return node;
+          }
+        }
+        this.root = removeNode(this.root, data); // start with root node and the data we are planning on removing
+      }
 }
