@@ -60,7 +60,7 @@ class BST {
         while(current.right !== null) { // while right node isn't null set the current node to right node and keep going 
             current = current.right
         }
-        return current.right // once a right node doesn't exist, it is the maximum 
+        return current.data // once a right node doesn't exist, it is the maximum 
     }
 
     // find data
@@ -133,3 +133,20 @@ class BST {
         this.root = removeNode(this.root, data); // start with root node and the data we are planning on removing
       }
 }
+
+const bst = new BST()
+
+bst.add(4);
+bst.add(2);
+bst.add(6);
+bst.add(1);
+bst.add(3);
+bst.add(5);
+bst.add(7);
+
+bst.remove(4) // remove 4
+console.log(bst.findMin()) // returns 1
+console.log(bst.findMax()) // returns 7
+bst.remove(7) // removes 7
+console.log(bst.findMax()) // now returns 6
+console.log(bst.isPresent(4)) // returns false as it was removed
