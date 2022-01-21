@@ -134,7 +134,7 @@ class BST {
       }
 }
 
-const bst = new BST()
+const bst = new BST() // creating a tree
 
 bst.add(4);
 bst.add(2);
