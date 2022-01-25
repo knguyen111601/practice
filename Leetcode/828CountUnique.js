@@ -60,55 +60,80 @@
 
 
 
+// const uniqueLetterString = (s) => {
+
+//     const substring = new Set
+//     const had = []
+//     const unique = []
+//     const all = []
+
+//     for (let i = 0; i < s.length; i++) {
+//         if (!substring.has(s[i])) {
+//             substring.add(s[i])
+//         } else {
+//             had.push(s[i])
+//         }
+//         for (word of had) {
+//             substring.delete(word)
+//         }
+//     }
+
+//     substring.forEach(n => unique.push(n))
+
+//     for (let i = 0; i < unique.length; i++) {
+//         let temp = []
+//         temp.push(unique[i])
+//         for (let j = 0; j < unique.length; j++){
+//             if (unique[i] !== unique[j]){
+//                 temp.push(unique[j])
+//             }
+//         }
+//         all.push(temp.join(""))
+//     }
+
+//     let sum = 0
+
+//     sum += unique.length * 2
+
+//     for (sub of all){
+//         sum += sub.length
+//     }
+
+
+
+//     console.log(unique)
+//     console.log(all)
+
+
+
+//     console.log(sum)
+
+
+// }
+
+// uniqueLetterString("ABC")
+
 const uniqueLetterString = (s) => {
-
-    const substring = new Set
-    const had = []
-    const unique = []
-    const all = []
-
-    for (let i = 0; i < s.length; i++) {
-        if (!substring.has(s[i])) {
-            substring.add(s[i])
-        } else {
-            had.push(s[i])
-        }
-        for (word of had) {
-            substring.delete(word)
-        }
+    let last = new Map()
+    let penultimate = new Map();
+    let res = 0;
+    
+    for(let i = 0; i < s.length; i++){
+        let lastIdx = last.get(s[i]) ?? -1;
+        let penultimateIdx = penultimate.get(s[i]) ?? -1;
+ 
+        res += (i - lastIdx) * (lastIdx - penultimateIdx);
+        
+        penultimate.set(s[i],lastIdx);
+        last.set(s[i],i);
     }
 
-    substring.forEach(n => unique.push(n))
+    last.forEach((value, key) => {
+        res += (s.length - value) * (value - (penultimate.get(key) ?? -1));
+    });
 
-    for (let i = 0; i < unique.length; i++) {
-        let temp = []
-        temp.push(unique[i])
-        for (let j = 0; j < unique.length; j++){
-            if (unique[i] !== unique[j]){
-                temp.push(unique[j])
-            }
-        }
-        all.push(temp.join(""))
-    }
-
-    let sum = 0
-
-    sum += unique.length * 2
-
-    for (sub of all){
-        sum += sub.length
-    }
-
-
-
-    console.log(unique)
-    console.log(all)
-
-
-
-    console.log(sum)
-
+    console.log(res)
 
 }
 
-uniqueLetterString("ABC")
+uniqueLetterString("LEETCODE")
