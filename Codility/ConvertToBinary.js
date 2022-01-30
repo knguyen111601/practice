@@ -7,10 +7,10 @@ const convertToBinary = (num) => {
     let remainders = []
 
     while (current > 0) {
-        remainders.push(current % 2)
+        remainders.unshift(current % 2)
         current = Math.floor(current/2)
     }
-    console.log(parseInt(remainders.reverse().join("")))
+    console.log(parseInt(remainders.join("")))
 }
 
 convertToBinary(25)
