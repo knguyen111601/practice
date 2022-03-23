@@ -11,7 +11,7 @@ const maxSubArraySum = (num, size) => {
 
     for (let i = 0; i < num.length; i++) {
         currentSum += num[i]
-        if ( i > size - 1) { // when i is greater than the window
+        if ( i >= size - 1) { // when i is greater than the window
             maxSumSeen = Math.max(currentSum, maxSumSeen)
             currentSum -= num[i - (size - 1)] // subtracts the first number from the window  
         }
