@@ -23,7 +23,7 @@ const maxSlidingWindow = (nums, k) => {
 
     for (let i = 0; i < nums.length;  i++) {
         currentWindow.push(nums[i])
-        if (i >= (k - 1)) {
+        if (i >= k - 1) {
             console.log(currentWindow)
             maxes.push(largestNum(currentWindow))
             currentWindow.shift()
