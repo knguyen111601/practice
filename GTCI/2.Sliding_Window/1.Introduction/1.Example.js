@@ -66,6 +66,9 @@ const findAveragesSliding = (k, arr) => {
 const slidingResult = findAveragesSliding(5, [1,3,2,6,-1,4,1,8,2])
 console.log(slidingResult)
 
+// Time Complexity
+// Now the TC is O(N) because it is only doing an operation per element in the array and saving time by not recalculating on each subarray
+
 
 
 
