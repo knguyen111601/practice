@@ -26,3 +26,6 @@ const maxSum = (k ,arr) => {
 }
 
 console.log(maxSum(3, [2,1,5,1,3,2]))
+
+// Time Complexity = O(N)
+// Space Complexity = O(1)
