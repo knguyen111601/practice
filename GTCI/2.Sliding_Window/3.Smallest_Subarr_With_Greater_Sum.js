@@ -16,13 +16,10 @@ const smallestSubarray = (s, arr) => {
             windowStart += 1
         }
     }
-
     if (currentSmallest === Infinity) {
         return 0
     }
-
     return currentSmallest
-
 }
 
 console.log(smallestSubarray(7, [2,1,5,2,8]))
@@ -30,5 +27,5 @@ console.log(smallestSubarray(7, [2,1,5,2,8]))
 // Time Complexity = O(N)
     // The time complexity of the above algorithm will be O(N)
     // The outer for loop runs for all elements, and the inner while loop processes each element only once; therefore, the time complexity of the algorithm will be O(N+N), which is asymptotically = O(N)
-    
+
 // Space Complexity = O(1)
