@@ -12,9 +12,13 @@ class Hero {
         this.firstName = firstName
         this.lastName = lastName
     }
+
+    sayName() {
+        console.log(this.firstName, this.lastName)
+    }
 }
 
 const SpiderMan = new Hero("peter", "parker")
 
-console.log(SpiderMan.firstName, SpiderMan.lastName)
+SpiderMan.sayName()
 
