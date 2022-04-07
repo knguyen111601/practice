@@ -22,3 +22,18 @@ const SpiderMan = new Hero("peter", "parker")
 
 SpiderMan.sayName()
 
+class SuperHero extends Hero {
+    constructor(firstName, lastName, power){
+        super(firstName, lastName)
+        this.power = power
+    }
+
+    sayPower(){
+        console.log(this.power)
+    }
+}
+
+const Batman = new SuperHero("Bruce", "Wayne", "None")
+
+Batman.sayName()
+Batman.sayPower()
