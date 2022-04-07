@@ -39,3 +39,9 @@ const longestSubstring = (str, k) => {
 }
 
 console.log(longestSubstring("araaci", 2))
+
+// Time Complexity 
+// The algorithm above has a time complexity of O(N). For loop runs for all the characters and the inner while loop processes each character only once so it is a  O(N + N) which is O(N)
+
+// Space Complexity
+// O(K) as we will be storing a maximum of K+1 characters in a HashMap
