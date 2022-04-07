@@ -38,4 +38,4 @@ const longestSubstring = (str, k) => {
     return currentMax
 }
 
-console.log(longestSubstring("abracadabra", 3))
+console.log(longestSubstring("araaci", 2))
