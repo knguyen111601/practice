@@ -54,3 +54,24 @@ var anonymous = function() {
 
 // Better to use anonymous functions assigned to variables to avoid hoisting for the sake of browser speed
 
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// Temporal Dead Zone
+
+// Temporal - Temporary 
+// Dead - Not working
+// Zone - Area 
+console.log("Program Started and Variable z is in Temporal Dead Zone");
+console.log("Variable z is in Temporal Dead Zone");
+console.log("Variable z is in Temporal Dead Zone");
+console.log("Variable z is in Temporal Dead Zone");
+console.log("Variable z is in Temporal Dead Zone");
+let z = 6;
+console.log("Now Variable z is not in Temporal Dead Zone");
+console.log(z);
+
+// Explanation
+// 1. In the starting, during the memory allocation phase of the global execution context, the "let z" will get space in memory inside the script object
+// 2. During the thread execution phase, the first line of console.log will execute and the z will be in the temporal dead zone and be undefined
+// 3. lines 2-5 z will remain the temporal dead zone
+// 4. As soon as we get to line 6, the variable z is initialized and is not longer in the temporal dead zone
