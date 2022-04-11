@@ -39,3 +39,18 @@ function example() {
 // Methods to avoid
 // Declare variables inside of functions that are used inside of the functions only
 // Can assign variables to functions rather than having a named function that needs to be hoisted
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// Named Function
+function named() {
+    console.log("Named function")
+}
+
+// Anonymous Function
+var anonymous = function() {
+    console.log("Anonymous")
+}
+
+// Better to use anonymous functions assigned to variables to avoid hoisting for the sake of browser speed
+
