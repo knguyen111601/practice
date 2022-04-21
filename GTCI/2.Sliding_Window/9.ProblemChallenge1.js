@@ -11,6 +11,9 @@
 // cab
 // cba
 
+////////////////////////////////////////
+// MY ORIGINAL METHOD
+////////////////////////////////////////
 const permutation = (str, pattern) => {
 
 
@@ -57,3 +60,59 @@ const permutation = (str, pattern) => {
 }
 
 console.log(permutation("oidbcaf", "abc"))
+
+////////////////////////////////////////
+// GTCI METHOD
+////////////////////////////////////////
+
+const find_permutation = (str, pattern) => {
+    let windowStart = 0
+    let matched = 0
+    let charFrequency = {}
+
+    // Adds each character in pattern to frequency 
+    for (let i = 0; i < pattern.length; i++){ 
+        const chr = pattern[i]
+        if (!(chr in pattern[i])) {
+            charFrequency[chr] = 0
+        }
+        charFrequency[chr] += 1
+    }
+
+    // The goal is to match all of the characters from charFrequency with the current window
+    // 
+    for (let i = 0; i < str.length; i++) {
+        const current = str[i]
+        if (current in charFrequency) {
+            // DECREMENT THE FREQUENCY OF MATCHED CHARACTER
+            // We are trying to get to 0 if the window has a correct character
+            charFrequency[current] -= 1
+            // When a character reached 0, then increment matched as we have a matching character from this window
+            if (charFrequency[current] === 0) {
+                matched += 1
+            }
+        }
+
+        // if the number of matched is the same as the length of the pattern, then it is true
+        if (matched === Object.keys(charFrequency).length) {
+            return true
+        }
+
+        // if the window size is larger than the length of the pattern
+        // shrink the window to make it equal the pattern
+        // if the character leaving the window was part of the pattern, put it back in 
+        if (i >= pattern.length-1) {
+            const start = str[windowStart]
+            windowStart += 1
+            if (start in charFrequency) {
+                if (charFrequency[start] === 0) {
+                    matched -= 1
+                }
+                charFrequency[start] += 1
+            }
+        }
+        return false
+    }
+
+
+}
