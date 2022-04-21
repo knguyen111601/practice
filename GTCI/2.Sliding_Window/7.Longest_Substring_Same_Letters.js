@@ -21,11 +21,10 @@ const length_of_longest_substring = (str, k) => {
         // sets maxRepeatingLetterCount to the most frequently seen letter
         maxRepeatingLetterCount = Math.max(maxRepeatingLetterCount, frequencyMap[current])
 
-        // the current window size if from windowStart to i
-        // we have a letter which is repeating maxRepeatingLetterCount times
-        // This means we should make the window have one letter repeating "maxRepeatingLetterCount" times and replace the rest
-        // If the rest of the letters are more than "k" then we must shrink the window as we are only allowed to replace "k" letters
-        // size of window - most repeating characters 
+        // window size - highest repeating character == how many items are left to replace
+        // if the number of items left to replace is greater than k, slide the window up one
+        // this is because we want the number of characters to be replaced to be k or less 
+        // so that we can save it to the maxLength
         if ((i-windowStart+1 - maxRepeatingLetterCount > k)) {
             // grabs first in window
             let start = str[windowStart]
