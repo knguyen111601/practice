@@ -1,3 +1,6 @@
-y=list("QWERTY")
+from operator import le
 
-print(y)
+
+letters = list("QWERTY")
+print(letters)
+
