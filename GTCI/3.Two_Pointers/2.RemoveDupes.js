@@ -34,6 +34,12 @@ const remove_duplicates = (arr) => {
 
     while (i < arr.length) { // iterate through array
 
+        // Example for explanation:
+            // [2,2,2,3]
+            // The nextNonDuplicate remains at position one until the other pointer discovers a non match
+            // Then, the non-match will be placed at the nextNonDuplicate and it will increment
+            // [2,3,2,3] now we know that the length of non matches is two
+
         if (arr[nextNonDuplicate - 1] !== arr[i]) { // if the pointers don't match
             arr[nextNonDuplicate] = arr[i] // shift all non dupe elements left
             nextNonDuplicate += 1 // increment length count
