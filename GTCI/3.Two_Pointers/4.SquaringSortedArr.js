@@ -52,3 +52,9 @@ const make_squares2 = (arr) => {
 }
 
 console.log(make_squares2([-2,-1,0,2,3]))
+
+// TIME COMPLEXITY
+// O(N) are only iterating once
+
+// SPACE COMPLEXITY
+// O(N) saved space is only for output array
