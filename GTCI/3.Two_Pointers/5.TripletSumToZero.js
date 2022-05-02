@@ -45,3 +45,12 @@ const search_pair = (arr, target_sum, left, triplets) => {
 }
 
 console.log(search_triplets([-3, 0, 1, 2, -1, 1, -2]))
+
+// TIME COMPLEXITY 
+    // Sorting the arr will take O(N*logN) and the search_pair() will take O(N)
+    // Since every input is calling search_pair(), overall, it is O(N*logN+N^2)
+    // Equivalent to O(N^2)
+
+// SPACE COMPLEXITY
+    // Ignoring space for output array
+    // O(N) from sorting 
