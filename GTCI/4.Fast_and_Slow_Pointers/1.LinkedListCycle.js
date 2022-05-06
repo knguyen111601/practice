@@ -96,5 +96,10 @@ console.log(`LinkedList has cycle: ${has_cycle(head2)}`);
 head2.next.next.next.next.next.next = head2.next.next.next;
 console.log(`LinkedList has cycle: ${has_cycle(head2)}`);
 
+// TIME COMPLEXITY 
+// O(N) with N being number of nodes in the linked list
+
+// SPACE COMPLEXITY
+// O(1) 
 
 
