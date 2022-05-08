@@ -49,3 +49,10 @@ const alternate = (nums) => {
 console.log(`${alternate([3, 1, 5, 4, 2])}`)
 console.log(`${alternate([2, 6, 4, 3, 1, 5])}`)
 console.log(`${alternate([1, 5, 6, 4, 3, 2])}`)
+
+// Time Complexity 
+    // O(n) 
+    // O(n) + O(n - 1) which is == O(n)
+
+// Space Complexity 
+    // O(1)
