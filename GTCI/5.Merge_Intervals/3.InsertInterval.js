@@ -46,18 +46,35 @@ const insert = (intervals, new_interval) => {
 
 // If the given list was not sorted, we could have simply appended the new interval to it and used the merge() function from Merge Intervals. But since the given list is sorted, we should try to come up with a solution better than O(N * logN)
 
+const alternate = (intervals, new_interval) => {
 
+  let merged = []
+  let i = 0;
 
+  // skip and add to output) all intervals that come before the 'new_interval'
+  while (i < intervals.length && intervals[i].end < new_interval.start) {
+    merged.push(intervals[i]);
+    i += 1;
+  }
 
+  // merge all intervals that overlap with 'new_interval'
+  while (i < intervals.length && intervals[i].start <= new_interval.end) {
+    new_interval.start = Math.min(intervals[i].start, new_interval.start);
+    new_interval.end = Math.max(intervals[i].end, new_interval.end);
+    i += 1;
+  }
 
+  // insert the new_interval
+  merged.push(new_interval);
 
+  // add all the remaining intervals to the output
+  while (i < intervals.length) {
+    merged.push(intervals[i]);
+    i += 1;
+  }
 
-
-
-
-
-
-
+  return merged;
+}
 
 //////////////////////////////////////////////////////////////////////////////
 process.stdout.write('Intervals after inserting the new interval: ');
@@ -88,5 +105,37 @@ result = insert([new Interval(2, 3),
 ], new Interval(1, 4));
 for (i = 0; i < result.length; i++) {
   result[i].print_interval();
+}
+console.log();
+//////////////////////////////////////////////////////////////////////////////
+console.log("-------ALTERNATE-------")
+process.stdout.write('Intervals after inserting the new interval: ');
+let result2 = alternate([
+  new Interval(1, 3),
+  new Interval(5, 7),
+  new Interval(8, 12),
+], new Interval(4, 6));
+for (i = 0; i < result2.length; i++) {
+  result2[i].print_interval();
+}
+console.log();
+
+process.stdout.write('Intervals after inserting the new interval: ');
+result2 = alternate([
+  new Interval(1, 3),
+  new Interval(5, 7),
+  new Interval(8, 12),
+], new Interval(4, 10));
+for (i = 0; i < result2.length; i++) {
+  result2[i].print_interval();
+}
+console.log();
+
+process.stdout.write('Intervals after inserting the new interval: ');
+result2 = alternate([new Interval(2, 3),
+  new Interval(5, 7),
+], new Interval(1, 4));
+for (i = 0; i < result2.length; i++) {
+  result2[i].print_interval();
 }
 console.log();
