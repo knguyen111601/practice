@@ -62,3 +62,9 @@ root.left.left = new TreeNode(9);
 root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
 console.log(`Level order traversal: ${traverse(root)}`);
+
+// Time Complexity 
+    // O(N) where N is total number of nodes in the tree
+
+// Space Complexity
+    // O(N) since we need to return a list containing the level order traversal 
