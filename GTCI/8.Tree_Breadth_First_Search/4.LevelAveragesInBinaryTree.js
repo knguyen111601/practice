@@ -52,3 +52,9 @@ root.right.left = new TreeNode(10)
 root.right.right = new TreeNode(5)
 
 console.log(`Level averages are: ${find_level_averages(root)}`)
+
+// Time Complexity 
+    // O(N) where N is number of nodes in tree
+
+// Space Complexity 
+    // O(N) since we need to return list of each level 
