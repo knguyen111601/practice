@@ -34,9 +34,10 @@ const traverse = (root) => {
     queue.push(root)
 
     while (queue.length > 0) {
+        let levelSize = queue.length
         let currentLevel = []
 
-        for (let i = 0; i < queue.length; i++) {
+        for (let i = 0; i < levelSize; i++) {
 
             const currentNode = queue.shift() // first item in the queue and removes it from queue
 
